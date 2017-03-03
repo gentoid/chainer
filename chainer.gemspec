@@ -1,6 +1,8 @@
+require_relative 'lib/chainer/version'
+
 Gem::Specification.new do |s|
   s.name        = 'chainer'
-  s.version     = '0.0.0'
+  s.version     = ::Chainer::VERSION
   s.date        = '2017-03-01'
   s.summary     = "Allows to pipe Ruby calls in a nice way"
   s.description = "Allows to pipe Ruby calls in a nice way"
