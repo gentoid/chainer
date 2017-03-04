@@ -57,7 +57,7 @@ RSpec.describe ::Chainer::Method do
     end
 
     it 'send the passed method name to the context with the value' do
-      expect(exec_context).to have_received(:add1)
+      expect(exec_context).to receive(:add1)
       with_context >> :add1
     end
 
