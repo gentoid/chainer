@@ -1,0 +1,16 @@
+require: rubocop-rspec
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*_spec.rb
+
+Metrics/LineLength:
+  Max: 120
+  IgnoreCopDirectives: true
+
+Style/EmptyLinesAroundBlockBody:
+  Exclude:
+    - spec/**/*_spec.rb
+
+Style/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines_except_namespace
