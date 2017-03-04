@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 require_relative 'lib/chainer/version'
+require 'date'
 
 Gem::Specification.new do |s|
   s.name        = 'chainer'
   s.version     = ::Chainer::VERSION
-  s.date        = '2017-03-01'
+  s.date        = Date.today.to_s
   s.summary     = 'Allows to pipe Ruby calls in a nice way'
   s.description = 'Allows to pipe Ruby calls in a nice way'
   s.authors     = ['Viktor Lazarev']
