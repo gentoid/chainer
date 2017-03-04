@@ -1,2 +1,2 @@
 # chainer
-Allows pipe Ruby calls in a nice way
+Allows to pipe Ruby calls in a nice way
