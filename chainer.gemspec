@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = 'Allows to pipe Ruby calls in a nice way'
   s.authors     = ['Viktor Lazarev']
   s.email       = 'taurus101v@gmail.com'
-  s.files       = []
+  s.files       = `git ls-files lib`.split("\n")
   s.homepage    = 'https://github.com/gentoid/chainer'
   s.license     = 'MIT'
 
