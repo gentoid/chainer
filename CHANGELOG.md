@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.0.2] - 2017-03-05
+### Added
+- object pipe class
+
+### Fixed
+- autoloading of Chainer::Method
+
 ## [0.0.1] - 2017-03-04
 ### Added
 - method pipe class
