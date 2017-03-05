@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Chainer
-
   # Pipes method names on a context class
   class Method
 
