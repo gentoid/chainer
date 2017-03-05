@@ -17,3 +17,6 @@ Style/EmptyLinesAroundBlockBody:
 
 Style/EmptyLinesAroundClassBody:
   EnforcedStyle: empty_lines_except_namespace
+
+Style/LambdaCall:
+  EnforcedStyle: braces
