@@ -9,5 +9,7 @@ script:
   - bundle exec rvm info
   - bundle exec rubocop -V
   - bundle exec rspec --version
-  - rubocop
+  - RUBOCOP_CONFIG="travis-ci/.rubocop-${RUBY_VERSION}.yml"
+  - if [[ ! -f "$RUBOCOP_CONFIG" ]]; then RUBOCOP_CONFIG=.rubocop.yml; fi
+  - rubocop -c $RUBOCOP_CONFIG
   - bundle exec rspec
