@@ -9,5 +9,5 @@ script:
   - bundle exec rvm info
   - bundle exec rubocop -V
   - bundle exec rspec --version
-  - bundle exec rubocop
+  - rubocop
   - bundle exec rspec
