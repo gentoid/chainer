@@ -3,6 +3,7 @@
 # Allows to pipe Ruby calls in a nice way
 module Chainer
   autoload :Class, 'chainer/class'
+  autoload :Fn, 'chainer/fn'
   autoload :Method, 'chainer/method'
   autoload :VERSION, 'chainer/version'
 end
