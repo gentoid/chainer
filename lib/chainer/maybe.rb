@@ -1,25 +1,20 @@
 # frozen_string_literal: true
 
+require 'singleton'
+
 module Chainer
   module Maybe
-
-    module InstanceMethods
-      def fmap(_)
-        self
-      end
-    end
 
     def self.Just(value)
       Just.new value
     end
 
     def self.Nothing(*_)
-      Nothing.new
+      Nothing.instance
     end
 
     def self.included(base)
       base.class_eval { attr_reader :value }
-      base.include InstanceMethods
     end
 
     class Just
@@ -33,10 +28,31 @@ module Chainer
         fn.(value)
       end
 
+      def *(apply)
+        apply.maybe? ? @value.(apply.value) : apply
+      end
+
+      def maybe?
+        true
+      end
+
     end
 
     class Nothing
+      include Singleton
       include ::Chainer::Maybe
+
+      def fmap(_)
+        self
+      end
+
+      def *(_)
+        self
+      end
+
+      def maybe?
+        false
+      end
     end
 
   end
