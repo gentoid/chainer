@@ -29,11 +29,31 @@ module Chainer
       end
 
       def *(apply)
-        apply.maybe? ? @value.(apply.value) : apply
+        return applicative_list(apply) if iterative?(apply)
+        applicative(apply)
       end
 
       def maybe?
         true
+      end
+
+      def applicative_list(list)
+        list.reduce([]) do |memo, apply|
+          memo + Array(applicative(apply))
+        end
+      end
+
+      def applicative(apply)
+        return apply unless apply.maybe?
+        wrap value.(apply.value)
+      end
+
+      def iterative?(value)
+        value.is_a?(::Chainer::List) || value.is_a?(Array)
+      end
+
+      def wrap(value)
+        self.class.new value
       end
 
     end
