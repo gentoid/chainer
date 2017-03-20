@@ -2,6 +2,7 @@
 
 # Allows to pipe Ruby calls in a nice way
 module Chainer
+  autoload :ADT, 'chainer/adt'
   autoload :Class, 'chainer/class'
   autoload :Fn, 'chainer/fn'
   autoload :List, 'chainer/list'
