@@ -35,6 +35,8 @@ module Chainer
       end
 
       context.const_set method_name, class_definition
+
+      context.define_singleton_method(method_name) { |*args| const_get(method_name).new *args }
     end
 
     def get_block_with_arity(args)
