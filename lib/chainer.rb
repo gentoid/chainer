@@ -6,6 +6,7 @@ module Chainer
   autoload :Class, 'chainer/class'
   autoload :Fn, 'chainer/fn'
   autoload :List, 'chainer/list'
+  autoload :Matcher, 'chainer/matcher'
   autoload :Maybe, 'chainer/maybe'
   autoload :Method, 'chainer/method'
   autoload :Mixins, 'chainer/mixins'
