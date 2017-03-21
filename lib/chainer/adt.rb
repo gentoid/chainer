@@ -8,7 +8,21 @@ module Chainer
     end
 
     def initialize(&block)
-      @context = ::Class.new
+      @context = ::Class.new do
+
+        def match(&block)
+          if method(:initialize).arity.zero?
+            self
+          else
+            matcher = ::Chainer::Matcher.new(self, self.class.variants, &block).()
+            self.class.new matcher.match.(value)
+           end
+        end
+
+        def self.variants; []; end
+
+      end
+
       @block = block
       freeze
     end
@@ -36,8 +50,17 @@ module Chainer
       end
 
       context.const_set method_name, class_definition
+      new_variants = context.variants + [method_name]
+      class << context
+        remove_method :variants
+      end
+      context.define_singleton_method(:variants) { new_variants }
 
       context.define_singleton_method(method_name) { |*args| const_get(method_name).new *args }
+    end
+
+    def implement(&block)
+      @context.class_eval &block
     end
 
     def get_block_with_arity(args)
