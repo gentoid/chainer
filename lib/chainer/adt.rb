@@ -3,18 +3,19 @@ module Chainer
 
     attr_reader :context, :block
 
-    def self.define(context, &block)
-      new(context, &block).()
+    def self.define(&block)
+      new(&block).()
     end
 
-    def initialize(context, &block)
-      @context = context
+    def initialize(&block)
+      @context = ::Class.new
       @block = block
       freeze
     end
 
     def call
       instance_eval &block
+      context
     end
 
     def method_missing(method_name, *args)
